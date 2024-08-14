@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>ML API</title>
+    <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+<body>
+    <div class="login">
+        <h1>Car Price Predictor</h1>
+
+        <!-- Main Input For Receiving Query to our ML -->
+        <form action="{{ url_for('predict')}}" method="post">
+            <div class="form-container">
+                <div class="form-half">
+                    <label for="brand">Brand</label>
+                    <input type="text" name="brand" placeholder="Brand" required="required" /><br><br>
+                    <label for="milage">Milage</label>
+                    <input type="text" name="milage" placeholder="Milage" required="required" /><br><br>
+                    <label for="accident">Accident</label>
+                    <select id="accident" name="accident">
+                        <option value="Yes">Yes</option>
+                        <option value="No">No</option>
+                    </select><br><br>
+                    <label for="clean_title">Clean Title</label>
+                    <select id="clean_title" name="clean_title">
+                        <option value="Yes">Yes</option>
+                        <option value="No">No</option>
+                    </select><br><br>
+                    <label for="interior_color">Interior Color</label>
+                    <select id="interior_color" name="interior_color">
+                        <option value="Black">Black</option>
+                        <option value="White">White</option>
+                        <option value="Other">Other</option>
+                    </select><br><br>
+                </div>
+                <div class="form-half">
+                    <label for="exterior_color">Exterior Color</label>
+                    <select id="exterior_color" name="exterior_color">
+                        <option value="Black">Black</option>
+                        <option value="White">White</option>
+                        <option value="Other">Other</option>
+                    </select><br><br>
+                    <label for="tsm">Transmission</label>
+                    <select id="tsm" name="tsm">
+                        <option value="Automatic">Automatic</option>
+                        <option value="Manual">Manual</option>
+                        <option value="DCT">DCT</option>
+                        <option value="Other">Other</option>
+                    </select><br><br>
+                    <label for="fuel">Fuel</label>
+                    <select id="fuel" name="fuel">
+                        <option value="Gasoline">Gasoline</option>
+                        <option value="Hybrid">Hybrid</option>
+                        <option value="Diesel">Diesel</option>
+                        <option value="Other">Other</option>
+                    </select><br><br>
+                    <label for="Engine_Displacement">Engine Displacement</label>
+                    <input type="text" name="Engine_Displacement" placeholder="Engine Displacement"
+                        required="required" /><br><br>
+                    <label for="age">Age</label>
+                    <input type="text" name="age" placeholder="Age" required="required" />
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+        </form>
+
+        <br>
+        <br>
+        {{ prediction_text }}
+
+    </div>
+
+
+</body>
+
+</html>

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <title>Home page</title>
+
+    <script src="https://kit.fontawesome.com/47101d2035.js" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <style>
+        .center {
+            position: absolute;
+            text-align: center;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: rgb(230, 239, 245);
+        }
+
+        label {
+            font-weight: 700;
+            color: rgb(44, 44, 90);
+        }
+    </style>
+</head>
+
+
+<body class="center">
+
+    <h1 style="color:rgb(44, 44, 90); font-weight: 700;">
+        <i class="fas fa-car"></i> Car Price Predictor
+    </h1>
+
+    <p style="color:rgb(51, 51, 83); font-weight: 700;">
+        How much is your car worth?
+    </p>
+
+    <form action="result">
+        {% csrf_token %}
+
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label class="mr-sm-2" for="brand">Brand</label>
+                <input class="form-control" placeholder="Brand" required type="text" name="brand">
+            </div>
+
+
+            <div class="form-group col-md-6">
+                <label class="mr-sm-2" for="milage">Milage</label>
+                <input class="form-control" placeholder="Milage" required type="text" name="milage">
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label class="mr-sm-2" for="accident">Accident</label>
+                <select class="custom-select mr-sm-2" id="accident" name="accident">
+                    <option value="Yes">Yes</option>
+                    <option value="No">No</option>
+                </select>
+            </div>
+
+
+            <div class="form-group col-md-6">
+                <label class="mr-sm-2" for="clean_title">Clean Title</label>
+                <select class="custom-select mr-sm-2" id="clean_title" name="clean_title">
+                    <option value="Yes">Yes</option>
+                    <option value="No">No</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label class="mr-sm-2" for="interior_color">Interior Color</label>
+                <select class="custom-select mr-sm-2" id="interior_color" name="interior_color">
+                    <option value="Black">Black</option>
+                    <option value="White">White</option>
+                    <option value="Other">Other</option>
+                </select>
+            </div>
+
+
+            <div class="form-group col-md-6">
+                <label class="mr-sm-2" for="exterior_color">Exterior Color</label>
+                <select class="custom-select mr-sm-2" id="exterior_color" name="exterior_color">
+                    <option value="Black">Black</option>
+                    <option value="White">White</option>
+                    <option value="Other">Other</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label class="mr-sm-2" for="tsm">Transmission</label>
+                <select class="custom-select mr-sm-2" id="tsm" name="tsm">
+                    <option value="Automatic">Automatic</option>
+                    <option value="Manual">Manual</option>
+                    <option value="DCT">DCT</option>
+                    <option value="Other">Other</option>
+                </select>
+            </div>
+
+
+            <div class="form-group col-md-6">
+                <label class="mr-sm-2" for="fuel">Fuel</label>
+                <select class="custom-select mr-sm-2" id="fuel" name="fuel">
+                    <option value="Gasoline">Gasoline</option>
+                    <option value="Hybrid">Hybrid</option>
+                    <option value="Diesel">Diesel</option>
+                    <option value="Other">Other</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label class="mr-sm-2" for="Engine_Displacement">Engine Displacement</label>
+                <input class="form-control" type="text" name="Engine_Displacement" placeholder="Engine Displacement"
+                    required="required" />
+            </div>
+
+
+            <div class="form-group col-md-6">
+                <label class="mr-sm-2" for="age">Age</label>
+                <input class="form-control" type="text" name="age" placeholder="Age" required="required" />
+            </div>
+        </div>
+
+        <input class="btn btn-primary btn-lg btn-block" type="submit" value='Predict'>
+    </form>
+</body>
+
+</html>
