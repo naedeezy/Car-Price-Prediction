@@ -3,7 +3,7 @@ import pandas as pd
 import streamlit as st
 
 
-model = pickle.load(open('pipeline.pkl', 'rb'))
+model = pickle.load(open('carpred_streamlit/pipeline.pkl', 'rb'))
 
 def main():
     st.title('Car Price Prediction')
