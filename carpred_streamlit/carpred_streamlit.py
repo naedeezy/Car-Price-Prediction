@@ -2,11 +2,13 @@ import pickle
 import pandas as pd
 import streamlit as st
 
-
+#Add the folder path to the sys path as streamlit in deployment mode only looks for files in your main directory.
 model = pickle.load(open('carpred_streamlit/pipeline.pkl', 'rb'))
+image_url = 'carpred_streamlit/cars.jpg'
 
 def main():
     st.title('Car Price Prediction')
+    st.image(image_url, caption='Cars at a dealership', use_column_width=True)
 
     st.write('This is a simple car price prediction app. Please enter the details of the car and we will predict the price for you.')
 
