@@ -2,3 +2,4 @@ fastapi
 uvicorn
 pandas
 pickle
+scikit-learn==1.3.2
